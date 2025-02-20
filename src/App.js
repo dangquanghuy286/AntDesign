@@ -1,13 +1,15 @@
 
 import './App.css';
-import HocButton from './components/Button';
+import HocGrid from './components/Grid';
+// import HocButton from './components/Button';
 
 function App() {
 
 
   return (
     <>
-      <HocButton />
+      {/* <HocButton /> */}
+      <HocGrid />
 
     </>
   );
