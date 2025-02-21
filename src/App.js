@@ -1,6 +1,7 @@
 
 import './App.css';
-import HocGrid from './components/Grid';
+// import HocGrid from './components/Grid';
+import LayoutDefault from './layout/LayoutDefault';
 // import HocButton from './components/Button';
 
 function App() {
@@ -9,7 +10,8 @@ function App() {
   return (
     <>
       {/* <HocButton /> */}
-      <HocGrid />
+      {/* <HocGrid /> */}
+      <LayoutDefault />
 
     </>
   );
