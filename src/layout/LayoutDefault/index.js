@@ -1,5 +1,5 @@
 import { Layout } from "antd";
-import HocGrid from "../../components/Grid";
+// import HocGrid from "../../components/Grid";
 // import FooterDefault from "../../components/Footer";
 import logo from "../../image/QH_logo.png";
 import {
@@ -10,6 +10,7 @@ import { useState } from "react";
 import "./Header.scss";
 import Notify from "../../components/Notify";
 import MenuSider from "../../components/Menu";
+import { Outlet } from "react-router-dom";
 
 const { Sider, Content } = Layout;
 
@@ -39,7 +40,7 @@ function LayoutDefault() {
             <Layout className="layout-default__body">
                 <Sider className="layout-default__sider" collapsed={collaps} theme="light"><MenuSider /></Sider>
                 <Content className="layout-default__content">
-                    <HocGrid />
+                    <Outlet />
                 </Content>
             </Layout>
             {/* <FooterDefault /> */}

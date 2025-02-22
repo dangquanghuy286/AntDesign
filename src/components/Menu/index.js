@@ -1,13 +1,14 @@
 import { AppstoreOutlined, MailOutlined, SettingOutlined } from "@ant-design/icons";
 import { Menu } from "antd";
 import React from "react";
+import { Link } from "react-router-dom";
 
 function MenuSider() {
     const items = [
         {
-            key: '1',
+            key: '/',
             icon: <MailOutlined />,
-            label: 'Navigation One',
+            label: <Link to="/">Dashboard</Link>,
             children: [
                 { key: '11', label: 'Option 1' },
                 { key: '12', label: 'Option 2' },
@@ -20,7 +21,7 @@ function MenuSider() {
             icon: <AppstoreOutlined />,
             label: 'Navigation Two',
             children: [
-                { key: '21', label: 'Option 1' },
+                { key: '/book-room', label: <Link to="/book-room">BookRoom</Link> },
                 { key: '22', label: 'Option 2' },
                 {
                     key: '23',
