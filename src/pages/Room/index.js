@@ -1,7 +1,9 @@
-import { Button, Checkbox, Col, Input, Row, Space } from 'antd';
+import { DatePicker, Button, Checkbox, Col, Input, Row, Space } from 'antd';
+
 import "./BookingRoom.css"
 import CartItem from '../../components/CartItem';
 import { useState } from 'react';
+const { RangePicker } = DatePicker;
 function BookRoom() {
     const [data, setData] = useState({})
     const handleChangeInput = (e) => {
@@ -14,7 +16,7 @@ function BookRoom() {
 
     }
     const handleChangeCheckbox = (e) => {
-        console.log(e);
+
         const object = {
             ...data,
             services: e
@@ -22,7 +24,16 @@ function BookRoom() {
         setData(object)
 
     }
+    const handleChangeDatePicker = (dates, dateStrings) => {
 
+        const object = {
+            ...data,
+            date: dateStrings
+        }
+        setData(object)
+
+
+    }
     const handleSubmit = () => {
         console.log("Ok", data);
 
@@ -66,6 +77,11 @@ function BookRoom() {
                             </Space>
                         </Checkbox.Group>
 
+                    </Col>
+                    <Col span={24}>
+                        <h4>Lịch trình
+                        </h4>
+                        <RangePicker placeholder={["Ngày đến:", "Ngày đi:"]} format="DD-MM-YYYY" onChange={handleChangeDatePicker} />
                     </Col>
                     <Col span={24}>
                         <Button type='primary' onClick={handleSubmit}> Đặt phòng</Button>
