@@ -1,4 +1,4 @@
-import { DatePicker, Button, Checkbox, Col, Input, Row, Space } from 'antd';
+import { DatePicker, Button, Checkbox, Col, Input, Row, Space, Radio } from 'antd';
 
 import "./BookingRoom.css"
 import CartItem from '../../components/CartItem';
@@ -34,6 +34,7 @@ function BookRoom() {
 
 
     }
+
     const handleSubmit = () => {
         console.log("Ok", data);
 
@@ -78,14 +79,25 @@ function BookRoom() {
                         </Checkbox.Group>
 
                     </Col>
-                    <Col span={24}>
+                    <Col span={12}>
                         <h4>Lịch trình
                         </h4>
                         <RangePicker placeholder={["Ngày đến:", "Ngày đi:"]} format="DD-MM-YYYY" onChange={handleChangeDatePicker} />
                     </Col>
+                    <Col span={12}>
+                        <p>Quà tặng</p>
+                        <Radio.Group name='gift' onChange={handleChangeInput}>
+                            <Space direction="horizontal">
+                                <Radio value="Non_di_bien">Nón đi biển</Radio>
+                                <Radio value="Voucher">Voucher</Radio>
+                            </Space>
+                        </Radio.Group>
+
+                    </Col>
                     <Col span={24}>
                         <Button type='primary' onClick={handleSubmit}> Đặt phòng</Button>
                     </Col>
+
                 </Row>
 
             </form>
