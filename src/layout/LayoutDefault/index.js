@@ -8,6 +8,7 @@ import {
 } from "@ant-design/icons";
 import { useState } from "react";
 import "./Header.scss";
+import Notify from "../../components/Notify";
 
 const { Sider, Content } = Layout;
 
@@ -30,12 +31,12 @@ function LayoutDefault() {
                         <div className="layout-default__search"><SearchOutlined /></div>
                     </div>
                     <div className="layout-default__nav-right">
-                        Nội dung
+                        <Notify />
                     </div>
                 </div>
             </header>
             <Layout className="layout-default__body">
-                <Sider className="layout-default__sider" collapsed={collaps} >SD</Sider>
+                <Sider className="layout-default__sider" collapsed={collaps} theme="light">SD</Sider>
                 <Content className="layout-default__content">
                     <HocGrid />
                 </Content>

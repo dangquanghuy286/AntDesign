@@ -1,0 +1,104 @@
+.notify {
+    &__dropdown {
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+        /* Đổ bóng cho dropdown, tạo hiệu ứng nổi bật hơn */
+
+        background-color: #ffff;
+
+
+        border-radius: 5px;
+        /* Bo tròn các góc của dropdown */
+
+        overflow: hidden;
+        /* Ẩn nội dung tràn ra ngoài, tránh bị cắt xén không đẹp */
+
+        min-width: 250px;
+        /* Đảm bảo dropdown có chiều rộng tối thiểu là 250px */
+    }
+
+    &__header {
+        display: flex;
+        /* Sử dụng flexbox để dễ dàng căn chỉnh các phần tử bên trong */
+
+        align-items: center;
+        /* Căn giữa các phần tử theo chiều dọc */
+
+        justify-content: space-between;
+        /* Các phần tử trong header sẽ được căn trái và phải cách xa nhau */
+
+        padding: 10px;
+        /* Tạo khoảng cách bên trong header */
+    }
+
+    &__body {
+        border-top: 1px solid #ddd;
+        /* Thêm đường kẻ ngăn cách giữa header và nội dung thông báo */
+
+        max-height: 200px;
+        /* Giới hạn chiều cao tối đa của nội dung, tránh dropdown quá dài */
+
+        overflow-y: auto;
+
+        /* Hiển thị thanh cuộn dọc nếu nội dung dài hơn `max-height` */
+        .ant-dropdown-menu-item {
+            border-bottom: 1px solid #d8d1d1;
+        }
+    }
+
+    &__item {
+        display: flex;
+
+
+    }
+
+    &__item-logo {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        background: greenyellow;
+        margin-right: 15px;
+
+        span {
+            color: white;
+            font-weight: bold;
+            font-size: 24px;
+        }
+    }
+
+
+    &__item-title {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__item-container {
+        display: block;
+
+    }
+
+    &__item-content {
+        font-size: 16px;
+        font-weight: 500;
+    }
+
+    &__item-time {
+        font-size: 10px;
+        font-weight: bold;
+
+    }
+
+    &__item-request {
+        align-items: center;
+        justify-content: center;
+
+        span {
+            color: rgb(100, 158, 12);
+            font-size: 16px;
+        }
+    }
+}
