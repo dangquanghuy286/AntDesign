@@ -9,6 +9,7 @@ import {
 import { useState } from "react";
 import "./Header.scss";
 import Notify from "../../components/Notify";
+import MenuSider from "../../components/Menu";
 
 const { Sider, Content } = Layout;
 
@@ -36,7 +37,7 @@ function LayoutDefault() {
                 </div>
             </header>
             <Layout className="layout-default__body">
-                <Sider className="layout-default__sider" collapsed={collaps} theme="light">SD</Sider>
+                <Sider className="layout-default__sider" collapsed={collaps} theme="light"><MenuSider /></Sider>
                 <Content className="layout-default__content">
                     <HocGrid />
                 </Content>
