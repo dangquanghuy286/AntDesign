@@ -1,0 +1,34 @@
+{
+  "book-room": [
+    {
+      "id": "44ea",
+      "time": "14 giờ",
+      "fullname": "Quảng nam",
+      "phone": "+84905920794",
+      "date": [
+        "03-03-2025",
+        "07-03-2025"
+      ],
+      "services": [
+        "thue_xe_may",
+        "mat_xa"
+      ],
+      "gift": "Non_di_bien"
+    },
+    {
+      "id": "05d5",
+      "time": "09 giờ",
+      "fullname": "244e112",
+      "phone": "010101010",
+      "date": [
+        "18-02-2025",
+        "18-03-2025"
+      ],
+      "services": [
+        "thue_xe_may",
+        "mat_xa"
+      ],
+      "gift": "Voucher"
+    }
+  ]
+}

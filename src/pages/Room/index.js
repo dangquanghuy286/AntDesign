@@ -3,6 +3,7 @@ import { DatePicker, Button, Checkbox, Col, Input, Row, Space, Radio, Select } f
 import "./BookingRoom.css"
 import CartItem from '../../components/CartItem';
 import { useState } from 'react';
+import { createRoom } from '../../services/listbookroom';
 const { RangePicker } = DatePicker;
 function BookRoom() {
     const [data, setData] = useState({
@@ -49,8 +50,14 @@ function BookRoom() {
 
     }
 
-    const handleSubmit = () => {
-        console.log("Ok", data);
+    const handleSubmit = async () => {
+        const res = await createRoom(data);
+
+        if (res) {
+            alert("Đặt phòng thành công")
+        } else {
+            alert("Xin lỗi vui lòng cài đặt sau")
+        }
 
     }
 
