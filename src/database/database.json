@@ -51,6 +51,26 @@
         "2025-03-26T17:00:00.000Z"
       ],
       "roomStatus": true
+    },
+    {
+      "id": "3bcb",
+      "roomName": "Phòng 2",
+      "maxOccupancy": 20,
+      "description": "sdfdf",
+      "bedCount": 10,
+      "roomType": [
+        "vip"
+      ],
+      "roomLocation": [
+        "tang-1",
+        "phong-102"
+      ],
+      "bedType": "double",
+      "bookingPeriod": [
+        "2025-02-26T17:00:00.000Z",
+        "2025-03-25T17:00:00.000Z"
+      ],
+      "roomStatus": true
     }
   ]
 }
