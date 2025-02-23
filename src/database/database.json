@@ -30,5 +30,27 @@
       ],
       "gift": "Voucher"
     }
+  ],
+  "room": [
+    {
+      "id": "8e72",
+      "roomName": "Phòng 1",
+      "maxOccupancy": 2,
+      "description": "huy",
+      "bedCount": 2,
+      "roomType": [
+        "vip"
+      ],
+      "roomLocation": [
+        "tang-2",
+        "phong-202"
+      ],
+      "bedType": "bunk",
+      "bookingPeriod": [
+        "2025-02-27T17:00:00.000Z",
+        "2025-03-26T17:00:00.000Z"
+      ],
+      "roomStatus": true
+    }
   ]
 }

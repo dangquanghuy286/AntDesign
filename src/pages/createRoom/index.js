@@ -1,193 +1,137 @@
-import { Button, Cascader, DatePicker, Form, Input, InputNumber, Mentions, Select, Switch } from "antd";
+import { Button, Cascader, DatePicker, Form, Input, InputNumber, Select, Switch } from "antd";
+import { createRoom } from "../../services/serviceRoom";
+
 const { RangePicker } = DatePicker;
+
 function CreateRoom() {
-    const handleonChangeStatus = (e) => {
-        console.log(e);
-
-
-    }
-    const handleSubmit = (e) => {
-        console.log(e);
-    }
-    const formItemLayout = {
-        labelCol: {
-            xs: {
-                span: 24,
-            },
-            sm: {
-                span: 6,
-            },
-        },
-        wrapperCol: {
-            xs: {
-                span: 24,
-            },
-            sm: {
-                span: 14,
-            },
-        },
+    const [form] = Form.useForm();
+    const handleChangeStatus = (status) => {
+        console.log("Trạng thái phòng:", status);
     };
+
+    const handleSubmit = async (values) => {
+        const res = await createRoom(values);
+        if (res) {
+            form.resetFields();
+        }
+    };
+
+    const formItemLayout = {
+        labelCol: { xs: { span: 24 }, sm: { span: 6 } },
+        wrapperCol: { xs: { span: 24 }, sm: { span: 14 } },
+    };
+
     return (
         <>
-            <h3>
-                Thêm phòng mới
-            </h3>
-            <Form name="create-room" {...formItemLayout} onFinish={handleSubmit}>
+            <h3>Thêm Phòng Mới</h3>
+            <Form name="create-room" {...formItemLayout} onFinish={handleSubmit} form={form}>
                 <Form.Item
-                    label="Tên"
-                    name="name"
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Vui lòng nhập tên!',
-                        },
-                    ]}
+                    label="Tên Phòng"
+                    name="roomName"
+                    rules={[{ required: true, message: "Vui lòng nhập tên phòng!" }]}
                 >
                     <Input />
                 </Form.Item>
 
                 <Form.Item
-                    label="SĐT"
-                    name="phone"
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Vui lòng nhập SDT!',
-                        },
-                    ]}
+                    label="Số Người Tối Đa"
+                    name="maxOccupancy"
+                    rules={[{ required: true, message: "Vui lòng nhập số lượng người!" }]}
                 >
-                    <InputNumber
-                        style={{
-                            width: '100%',
-                        }}
-                    />
+                    <InputNumber style={{ width: "100%" }} />
                 </Form.Item>
 
                 <Form.Item
-                    label="Địa chỉ"
-                    name="address"
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Vui lòng nhập địa chỉ!',
-                        },
-                    ]}
+                    label="Mô Tả"
+                    name="description"
+                    rules={[{ required: true, message: "Vui lòng nhập mô tả!" }]}
                 >
                     <Input.TextArea />
                 </Form.Item>
 
                 <Form.Item
-                    label="Email"
-                    name="email"
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Vui lòng nhập Email!',
-                        },
-                    ]}
+                    label="Số Lượng Giường"
+                    name="bedCount"
+                    rules={[{ required: true, message: "Vui lòng nhập số lượng giường!" }]}
                 >
-                    <Mentions />
+                    <InputNumber style={{ width: "100%" }} />
                 </Form.Item>
 
                 <Form.Item
-                    label="Chọn phòng"
-                    name="pick_room"
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Vui lòng chọn phòng!',
-                        },
-                    ]}
+                    label="Loại Phòng"
+                    name="roomType"
+                    rules={[{ required: true, message: "Vui lòng chọn loại phòng!" }]}
                 >
                     <Select mode="multiple" allowClear>
                         <Select.Option value="vip">Phòng VIP</Select.Option>
-                        <Select.Option value="standard">Phòng thường</Select.Option>
+                        <Select.Option value="standard">Phòng Thường</Select.Option>
                     </Select>
-
                 </Form.Item>
 
                 <Form.Item
-                    label="Chọn vị trí cho phòng"
-                    name="place"
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Vui lòng chọn vị trí cho phòng!',
-                        },
-                    ]}
+                    label="Vị Trí Phòng"
+                    name="roomLocation"
+                    rules={[{ required: true, message: "Vui lòng chọn vị trí phòng!" }]}
                 >
                     <Cascader
                         options={[
                             {
-                                value: 'tang-1',
-                                label: 'Tầng 1',
+                                value: "tang-1",
+                                label: "Tầng 1",
                                 children: [
-                                    { value: 'phong-101', label: 'Phòng 101' },
-                                    { value: 'phong-102', label: 'Phòng 102' },
+                                    { value: "phong-101", label: "Phòng 101" },
+                                    { value: "phong-102", label: "Phòng 102" },
                                 ],
                             },
                             {
-                                value: 'tang-2',
-                                label: 'Tầng 2',
+                                value: "tang-2",
+                                label: "Tầng 2",
                                 children: [
-                                    { value: 'phong-201', label: 'Phòng 201' },
-                                    { value: 'phong-202', label: 'Phòng 202' },
+                                    { value: "phong-201", label: "Phòng 201" },
+                                    { value: "phong-202", label: "Phòng 202" },
                                 ],
                             },
                         ]}
                     />
-
                 </Form.Item>
 
-                <Form.Item label="Chọn giường" name="BedType" rules={[{ required: true, message: 'Vui lòng chọn loại giường!' }]}>
+                <Form.Item
+                    label="Loại Giường"
+                    name="bedType"
+                    rules={[{ required: true, message: "Vui lòng chọn loại giường!" }]}
+                >
                     <Select placeholder="Chọn loại giường">
-                        <Select.Option value="single">Giường đơn</Select.Option>
-                        <Select.Option value="double">Giường đôi</Select.Option>
-                        <Select.Option value="bunk">Giường tầng</Select.Option>
+                        <Select.Option value="single">Giường Đơn</Select.Option>
+                        <Select.Option value="double">Giường Đôi</Select.Option>
+                        <Select.Option value="bunk">Giường Tầng</Select.Option>
                         <Select.Option value="king">Giường King-size</Select.Option>
                     </Select>
                 </Form.Item>
 
-
-
-
                 <Form.Item
-                    label="Thời gian "
+                    label="Thời Gian Đặt"
                     name="bookingPeriod"
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Vui lòng chọn thời gian !',
-                        },
-                    ]}
+                    rules={[{ required: true, message: "Vui lòng chọn thời gian đặt phòng!" }]}
                 >
-                    <RangePicker placeholder={["Ngày đến:", "Ngày đi"]} style={{ width: '100%' }} />
+                    <RangePicker placeholder={["Ngày đến", "Ngày đi"]} style={{ width: "100%" }} />
                 </Form.Item>
-                <Form.Item
-                    label="Trạng thái"
-                    name="status"
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Vui lòng chọn thời gian !',
-                        },
-                    ]}
-                >
-                    <Switch defaultChecked onChange={handleonChangeStatus} />
 
-                </Form.Item>
                 <Form.Item
-                    wrapperCol={{
-                        offset: 6,
-                        span: 16,
-                    }}
+                    label="Trạng Thái Phòng"
+                    name="roomStatus"
+                    rules={[{ required: true, message: "Vui lòng chọn trạng thái phòng!" }]}
                 >
-                    <Button type="primary" htmlType="submit">
-                        Submit
+                    <Switch defaultChecked onChange={handleChangeStatus} />
+                </Form.Item>
+
+                <Form.Item wrapperCol={{ offset: 6, span: 16 }}>
+                    <Button type="primary" htmlType="submit" >
+                        Thêm Phòng
                     </Button>
                 </Form.Item>
             </Form>
         </>
-    )
+    );
 }
+
 export default CreateRoom;
