@@ -1,6 +1,6 @@
 import CartItem from "../CartItem";
 import "./LearnGrid.css"
-import { Row, Col, Carousel }
+import { Row, Col, Carousel, Image }
     from
     "antd"
     ;
@@ -57,6 +57,7 @@ function HocGrid() {
 
                 </div>
             </Carousel>
+            <Image src={banner} width={200} />
 
         </>
     )
