@@ -1,4 +1,4 @@
-import { AppstoreOutlined, MailOutlined, SettingOutlined } from "@ant-design/icons";
+import { AppstoreOutlined, MailOutlined, PlusOutlined } from "@ant-design/icons";
 import { Menu } from "antd";
 import React from "react";
 import { Link } from "react-router-dom";
@@ -44,15 +44,9 @@ function MenuSider() {
             ],
         },
         {
-            key: '3',
-            icon: <SettingOutlined />,
-            label: 'Navigation Three',
-            children: [
-                { key: '31', label: 'Option 1' },
-                { key: '32', label: 'Option 2' },
-                { key: '33', label: 'Option 3' },
-                { key: '34', label: 'Option 4' },
-            ],
+            key: '/create-room',
+            icon: <PlusOutlined />,
+            label: <Link to="/create-room">Tạo phòng</Link>,
         },
     ];
 
