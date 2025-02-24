@@ -25,7 +25,7 @@ function RoomTable(props) {
             dataIndex: 'roomStatus',
             key: 'roomStatus',
             render: (text, record) => {
-                console.log(text, record);
+
                 return <>
                     {record.roomStatus ? (
                         <>
@@ -44,7 +44,7 @@ function RoomTable(props) {
             dataIndex: 'roomType',
             key: 'roomType',
             render: (text, record) => {
-                console.log(text, record);
+
                 return <>
                     {record.roomType.includes("vip") ? (
                         <>

@@ -5,7 +5,7 @@ function RoomGrid(props) {
     return (
         <>
 
-            <Row>
+            <Row gutter={[20, 20]}>
                 {room.map((item) => (
                     <Col span={12} key={item.id}>
                         <Badge.Ribbon text={item.roomType?.includes("vip") ? "Phòng VIP" : "Phòng thường"} color={item.roomType?.includes("vip") ? "red" : "green"}>

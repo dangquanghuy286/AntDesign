@@ -1,12 +1,12 @@
 import { EditOutlined } from "@ant-design/icons";
-import { Button, Cascader, Form, Input, InputNumber, Modal, Select, DatePicker, Switch, message } from "antd";
+import { Button, Cascader, Form, Input, InputNumber, Modal, Select, DatePicker, Switch, notification } from "antd";
 import dayjs from "dayjs";
 import { useState } from "react";
 import { updateRoom } from "../../services/serviceRoom";
 const { RangePicker } = DatePicker;
 function EditRoom(props) {
     const { record, onReload } = props
-    const [messageApi, contextHolder] = message.useMessage();
+    const [notifiApi, contextHolder] = notification.useNotification();
     const [form] = Form.useForm();
     const handleChangeStatus = (status) => {
         console.log("Trạng thái phòng:", status);
@@ -15,18 +15,18 @@ function EditRoom(props) {
     const handleSubmit = async (data) => {
         const res = await updateRoom(record.id, data);
         if (res) {
-            messageApi.open({
-                type: 'success',
-                content: 'Cập nhật  thành công',
+            notifiApi.success({
+                message: "Thành công",
+                description: `Bạn đã cập nhật thành công ${record.roomName}`,
                 duration: 2,
 
             });
             setShowModal(false);
             onReload();
         } else {
-            messageApi.open({
-                type: 'error',
-                content: 'TCập nhật thất bại',
+            notifiApi.error({
+                message: "Thất bại",
+                description: `Bạn đã cập nhật thất bại ${record.roomName}`,
                 duration: 2
             });
         }

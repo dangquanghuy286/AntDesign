@@ -73,7 +73,6 @@
       "roomStatus": true
     },
     {
-      "id": "0436",
       "roomName": "Phòng 3",
       "maxOccupancy": 8,
       "description": "sder",
@@ -90,7 +89,8 @@
         "2025-02-26T17:00:00.000Z",
         "2025-03-25T17:00:00.000Z"
       ],
-      "roomStatus": true
+      "roomStatus": true,
+      "id": "0436"
     }
   ]
 }
