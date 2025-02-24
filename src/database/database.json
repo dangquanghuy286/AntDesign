@@ -33,10 +33,9 @@
   ],
   "room": [
     {
-      "id": "8e72",
       "roomName": "Phòng 1",
       "maxOccupancy": 2,
-      "description": "huy",
+      "description": "huy đẹp trai",
       "bedCount": 2,
       "roomType": [
         "vip"
@@ -48,9 +47,10 @@
       "bedType": "bunk",
       "bookingPeriod": [
         "2025-02-27T17:00:00.000Z",
-        "2025-03-26T17:00:00.000Z"
+        "2025-03-27T17:00:00.000Z"
       ],
-      "roomStatus": true
+      "roomStatus": true,
+      "id": "8e72"
     },
     {
       "id": "62de",
@@ -69,6 +69,26 @@
       "bookingPeriod": [
         "2025-02-18T17:00:00.000Z",
         "2025-03-18T17:00:00.000Z"
+      ],
+      "roomStatus": true
+    },
+    {
+      "id": "0436",
+      "roomName": "Phòng 3",
+      "maxOccupancy": 8,
+      "description": "sder",
+      "bedCount": 3,
+      "roomType": [
+        "vip"
+      ],
+      "roomLocation": [
+        "tang-2",
+        "phong-202"
+      ],
+      "bedType": "bunk",
+      "bookingPeriod": [
+        "2025-02-26T17:00:00.000Z",
+        "2025-03-25T17:00:00.000Z"
       ],
       "roomStatus": true
     }

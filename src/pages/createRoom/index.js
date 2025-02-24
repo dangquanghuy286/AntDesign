@@ -1,9 +1,10 @@
-import { Button, Cascader, DatePicker, Form, Input, InputNumber, Select, Switch } from "antd";
+import { Button, Cascader, DatePicker, Form, Input, InputNumber, message, Select, Switch } from "antd";
 import { createRoom } from "../../services/serviceRoom";
 
 const { RangePicker } = DatePicker;
 
 function CreateRoom() {
+    const [messageApi, contextHolder] = message.useMessage();
     const [form] = Form.useForm();
     const handleChangeStatus = (status) => {
         console.log("Trạng thái phòng:", status);
@@ -13,6 +14,18 @@ function CreateRoom() {
         const res = await createRoom(values);
         if (res) {
             form.resetFields();
+            messageApi.open({
+                type: 'success',
+                content: 'Tạo mới thành công',
+                duration: 2,
+
+            });
+        } else {
+            messageApi.open({
+                type: 'error',
+                content: 'Tạo mới thất bại',
+                duration: 2
+            });
         }
     };
 
@@ -23,6 +36,7 @@ function CreateRoom() {
 
     return (
         <>
+            {contextHolder}
             <h3>Thêm Phòng Mới</h3>
             <Form name="create-room" {...formItemLayout} onFinish={handleSubmit} form={form}>
                 <Form.Item
@@ -38,7 +52,7 @@ function CreateRoom() {
                     name="maxOccupancy"
                     rules={[{ required: true, message: "Vui lòng nhập số lượng người!" }]}
                 >
-                    <InputNumber style={{ width: "100%" }} />
+                    <InputNumber min={0} style={{ width: "100%" }} />
                 </Form.Item>
 
                 <Form.Item
@@ -54,7 +68,7 @@ function CreateRoom() {
                     name="bedCount"
                     rules={[{ required: true, message: "Vui lòng nhập số lượng giường!" }]}
                 >
-                    <InputNumber style={{ width: "100%" }} />
+                    <InputNumber min={0} style={{ width: "100%" }} />
                 </Form.Item>
 
                 <Form.Item
