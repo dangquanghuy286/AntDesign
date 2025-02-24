@@ -1,5 +1,5 @@
 import { EditOutlined } from "@ant-design/icons";
-import { Button, Cascader, Form, Input, InputNumber, Modal, Select, DatePicker, Switch, notification } from "antd";
+import { Button, Cascader, Form, Input, InputNumber, Modal, Select, DatePicker, Switch, notification, Spin } from "antd";
 import dayjs from "dayjs";
 import { useState } from "react";
 import { updateRoom } from "../../services/serviceRoom";
@@ -8,28 +8,34 @@ function EditRoom(props) {
     const { record, onReload } = props
     const [notifiApi, contextHolder] = notification.useNotification();
     const [form] = Form.useForm();
+    const [spin, setSpin] = useState(false);
     const handleChangeStatus = (status) => {
         console.log("Trạng thái phòng:", status);
     };
 
     const handleSubmit = async (data) => {
+        setSpin(true)
         const res = await updateRoom(record.id, data);
-        if (res) {
-            notifiApi.success({
-                message: "Thành công",
-                description: `Bạn đã cập nhật thành công ${record.roomName}`,
-                duration: 2,
+        setTimeout(() => {
+            if (res) {
+                notifiApi.success({
 
-            });
-            setShowModal(false);
-            onReload();
-        } else {
-            notifiApi.error({
-                message: "Thất bại",
-                description: `Bạn đã cập nhật thất bại ${record.roomName}`,
-                duration: 2
-            });
-        }
+                    message: "Thành công",
+                    description: `Bạn đã cập nhật thành công ${record.roomName}`,
+                    duration: 2,
+
+                });
+                setShowModal(false);
+                onReload();
+            } else {
+                notifiApi.error({
+                    message: "Thất bại",
+                    description: `Bạn đã cập nhật thất bại ${record.roomName}`,
+                    duration: 2
+                });
+            }
+            setSpin(false)
+        }, 3000)
     };
 
     const [showModal, setShowModal] = useState(false);
@@ -48,7 +54,7 @@ function EditRoom(props) {
             {contextHolder}
             <Button type="primary" size="small" icon={<EditOutlined />} onClick={handleShowModal} />
             <Modal title="Chỉnh sửa phòng" open={showModal} onCancel={handleCancel} footer={null} >
-                <Form name="create-room" {...formItemLayout} onFinish={handleSubmit} form={form} initialValues={{
+                <Spin tip="Đang tải" delay={5} spinning={spin}><Form name="create-room" {...formItemLayout} onFinish={handleSubmit} form={form} initialValues={{
                     ...record,
                     bookingPeriod: record.bookingPeriod
                         ? [dayjs(record.bookingPeriod[0]), dayjs(record.bookingPeriod[1])] : []
@@ -160,7 +166,7 @@ function EditRoom(props) {
                             Cập nhật
                         </Button>
                     </Form.Item>
-                </Form>
+                </Form></Spin>
             </Modal>
         </>
     )

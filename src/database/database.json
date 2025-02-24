@@ -53,7 +53,6 @@
       "id": "8e72"
     },
     {
-      "id": "62de",
       "roomName": "Phòng 2",
       "maxOccupancy": 5,
       "description": "Phòng gia đình",
@@ -70,7 +69,8 @@
         "2025-02-18T17:00:00.000Z",
         "2025-03-18T17:00:00.000Z"
       ],
-      "roomStatus": true
+      "roomStatus": true,
+      "id": "62de"
     },
     {
       "roomName": "Phòng 3",

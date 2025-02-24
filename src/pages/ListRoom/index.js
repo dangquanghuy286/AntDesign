@@ -10,7 +10,7 @@ function ListRoom() {
     const [isGrid, setIsGrid] = useState(true);
     const fetchApi = async () => {
         const res = await getListRoom();
-        setRoom(res)
+        setRoom(res.reverse())
     }
     useEffect(() => {
         fetchApi();
