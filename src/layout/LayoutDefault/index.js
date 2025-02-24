@@ -1,4 +1,4 @@
-import { Layout } from "antd";
+import { Layout, QRCode, Rate } from "antd";
 // import HocGrid from "../../components/Grid";
 // import FooterDefault from "../../components/Footer";
 import logo from "../../image/QH_logo.png";
@@ -42,6 +42,11 @@ function LayoutDefault() {
                 <Content className="layout-default__content">
                     <Outlet />
                 </Content>
+                <QRCode value="https://www.facebook.com/dangquanghuy2806">
+
+
+                </QRCode>
+                <Rate allowHalf ></Rate>
             </Layout>
             {/* <FooterDefault /> */}
         </Layout>
